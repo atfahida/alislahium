@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Results</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Arts Fest Results</h2>
+
+    <a
+        href="{% url 'dashboard' %}"
+        class="btn btn-primary"
+    >
+        Dashboard
+    </a>
+
+</div>
+
+
+
+    <table class="table table-bordered mt-4">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>Student</th>
+                <th>Event</th>
+                <th>Place</th>
+                <th>Grade</th>
+                <th>Place Points</th>
+                <th>Grade Points</th>
+                <th>Total</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for result in results %}
+
+            <tr>
+
+                <td>
+                    {{ result.participant.student.name }}
+                </td>
+
+                <td>
+                    {{ result.participant.event.event_name }}
+                </td>
+
+                <td>
+                    {{ result.place }}
+                </td>
+
+                <td>
+                    {{ result.grade }}
+                </td>
+
+                <td>
+                    {{ result.place_points }}
+                </td>
+
+                <td>
+                    {{ result.grade_points }}
+                </td>
+
+                <td>
+                    <strong>
+                        {{ result.total_points }}
+                    </strong>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>
